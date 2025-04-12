@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import Api_connection
+from admin_dashbord import views
+from django.urls import path, include
+
 
 urlpatterns = [
+    path('admin_dashbord',include('admin_dashbord.urls')),
     path('admin/', admin.site.urls),
     path('',Api_connection.main,name='main')
 ]

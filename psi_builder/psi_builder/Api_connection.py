@@ -19,7 +19,7 @@ def api_connect(apiKey,userid,pin,totpKey):
         return print(f"Error: {e}")
     
 def main(request):
-    connection,obj = api_connect(apiKey,userid,pin,totpKey)
-    jwt_token = obj['data'].get('jwtToken')
-    feed_token = obj['data'].get('feedToken')
-    return HttpResponse(jwt_token+feed_token)
+    # connection,obj = api_connect(apiKey,userid,pin,totpKey)
+    # jwt_token = obj['data'].get('jwtToken')
+    # feed_token = obj['data'].get('feedToken')
+    return HttpResponse("This is home page")
