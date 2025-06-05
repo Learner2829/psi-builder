@@ -1,0 +1,25 @@
+body.dark-mode { background-color: #001020; color: white; }
+.positive { color: green; }
+.negative { color: red; }
+.remove-btn { background: red; color: white; border: none; padding: 4px 10px; border-radius: 4px; }
+.remove-btn:hover { background: darkred; }
+.autocomplete-items {
+  border: 1px solid #ddd;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 99;
+  position: absolute;
+  background: white;
+  width: 100%;
+}
+.autocomplete-items div {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}

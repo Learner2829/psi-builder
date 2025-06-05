@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Index Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <style>
+    body { background: #001020; color: white; }
+    .navbar { background-color: #1a2530; }
+    .navbar-brand, .nav-link, .dropdown-item { color: white !important; }
+    .dropdown-menu { background-color: #34495E; }
+    .form-control {
+      border-radius: 25px;
+      background-color: #021528;
+      color: white;
+      border: 1px solid white;
+    }
+    .btn-outline-success {
+      border-color: #034587;
+      color: #034587;
+    }
+    .btn-outline-success:hover {
+      background-color: #034587;
+      color: white;
+    }
+    .modal-content { background-color: #001020; color: #f2f5f3; }
+    .modal-header, .modal-footer { background-color: #1C2833; }
+    .modal-header .close { color: #001020; }
+    .modal-body label { color: #f2f7f4; }
+    .required { color: rgb(212, 44, 44); font-weight: bold; }
+    .error-message { color: rgb(212, 44, 44); font-size: 14px; }
+    .indeximg img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      background-color: #1e1e1e;
+      border: 1px solid #2c2c2c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+    }
+
+    h2 {
+      color: #00bcd4;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      color: #cccccc;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1a1a1a;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 1rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Psi-Stock hub</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li> 
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li> <!-- About Link -->
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li> <!-- Contact Us Link -->
+
+    </ul>
+
+    <ul class="navbar-nav ml-auto" id="authButtons">
+      <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Signup</a></li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" id="userDropdownContainer" style="display: none;">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <span id="navbarUsername"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="profile.html">Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-danger" href="#" id="logoutBtn">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Login</h5><button type="button" class="close" data-dismiss="modal"><span>&times;</span></button></div>
+    <div class="modal-body">
+      <form id="loginForm">
+        <div class="form-group"><label>Email <span class="required">*</span></label><input type="email" class="form-control" id="loginEmail"></div>
+        <div class="form-group"><label>Password <span class="required">*</span></label><input type="password" class="form-control" id="loginPassword"></div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div></div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Signup</h5><button type="button" class="close" data-dismiss="modal"><span>&times;</span></button></div>
+    <div class="modal-body">
+      <form id="signupForm">
+        <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" class="form-control" id="signupName"></div>
+        <div class="form-group"><label>Email <span class="required">*</span></label><input type="email" class="form-control" id="signupEmail"></div>
+        <div class="form-group"><label>Phone Number <span class="required">*</span></label><input type="tel" class="form-control" id="signupPhone"></div>
+        <div class="form-group"><label>Gender <span class="required">*</span></label>
+          <select class="form-control" id="signupGender">
+            <option value="">Select Gender</option><option>Male</option><option>Female</option><option>Other</option>
+          </select></div>
+        <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" class="form-control" id="signupDOB"></div>
+        <div class="form-group"><label>Password <span class="required">*</span></label><input type="password" class="form-control" id="signupPassword"></div>
+        <button type="submit" class="btn btn-primary">Signup</button>
+      </form>
+    </div>
+  </div></div>
+</div>
+
+<!-- Image -->
+{% load static %}
+<div class="indeximg">
+  <img src="{% static 'img/indeximg.jpg' %}" alt="Stock Chart" class="img-fluid">
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+  
+      function isValidPassword(password) {
+        return password.length >= 6;
+      }
+  
+      function showError(input, message) {
+        clearError(input);
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
+        errorDiv.textContent = message;
+        input.parentNode.appendChild(errorDiv);
+      }
+  
+      function clearError(input) {
+        const error = input.parentNode.querySelector(".error-message");
+        if (error) error.remove();
+      }
+  
+      function updateNavbarUsername() {
+        const user = localStorage.getItem("loggedInUser");
+        const userDropdown = document.getElementById("userDropdownContainer");
+        const authButtons = document.getElementById("authButtons");
+  
+        if (user) {
+          try {
+            const userData = JSON.parse(user);
+            document.getElementById("navbarUsername").textContent = userData.name || "User";
+            userDropdown.style.display = "flex";
+            authButtons.style.display = "none";
+          } catch (e) {
+            console.error("Invalid user data in localStorage", e);
+            localStorage.removeItem("loggedInUser");
+            userDropdown.style.display = "none";
+            authButtons.style.display = "flex";
+          }
+        } else {
+          userDropdown.style.display = "none";
+          authButtons.style.display = "flex";
+        }
+      }
+  
+      document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail");
+        const password = document.getElementById("loginPassword");
+        let valid = true;
+  
+        clearError(email); clearError(password);
+        if (!isValidEmail(email.value)) {
+          showError(email, "Please enter a valid email."); valid = false;
+        }
+        if (!isValidPassword(password.value)) {
+          showError(password, "Password must be at least 6 characters."); valid = false;
+        }
+  
+        if (valid) {
+          const fakeName = email.value.split("@")[0];
+          const fakeUser = {
+            name: fakeName,
+            email: email.value
+          };
+          localStorage.setItem("loggedInUser", JSON.stringify(fakeUser));
+          updateNavbarUsername();
+          alert("Login Successful!");
+          $("#loginModal").modal("hide");
+        }
+      });
+  
+      document.getElementById("signupForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("signupName");
+        const email = document.getElementById("signupEmail");
+        const phone = document.getElementById("signupPhone");
+        const gender = document.getElementById("signupGender");
+        const dob = document.getElementById("signupDOB");
+        const password = document.getElementById("signupPassword");
+        let valid = true;
+  
+        [name, email, phone, gender, dob, password].forEach(clearError);
+        if (name.value.trim() === "") {
+          showError(name, "Full name is required."); valid = false;
+        }
+        if (!isValidEmail(email.value)) {
+          showError(email, "Please enter a valid email."); valid = false;
+        }
+        if (!/^\d{10}$/.test(phone.value)) {
+          showError(phone, "Enter a valid 10-digit phone number."); valid = false;
+        }
+        if (!gender.value) {
+          showError(gender, "Please select a gender."); valid = false;
+        }
+        if (!dob.value) {
+          showError(dob, "Please enter your date of birth."); valid = false;
+        }
+        if (!isValidPassword(password.value)) {
+          showError(password, "Password must be at least 6 characters."); valid = false;
+        }
+  
+        if (valid) {
+          const userData = {
+            name: name.value,
+            email: email.value,
+            phone: phone.value,
+            gender: gender.value,
+            dob: dob.value
+          };
+          localStorage.setItem("loggedInUser", JSON.stringify(userData));
+          updateNavbarUsername();
+          alert("Signup Successful!");
+          $("#signupModal").modal("hide");
+        }
+      });
+  
+      document.getElementById("logoutBtn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        updateNavbarUsername();
+        alert("You have been logged out.");
+      });
+  
+      updateNavbarUsername();
+    });
+  </script>
+  <main>
+    <section>
+      <h2>Built for Traders</h2>
+      <p>Whether you're a day trader, swing trader, or just getting started — our platform provides a seamless, intuitive experience with powerful tools built for real-time analysis.</p>
+    </section>
+  
+    <section>
+      <h2>Visualize Trends Instantly</h2>
+      <p>Our lightning-fast charts help you track movements, spot patterns, and react in real-time. Zoom, draw, and overlay indicators with a few clicks.</p>
+    </section>
+  
+    <section>
+      <h2>Stay Ahead with Live Data</h2>
+      <p>Access global markets with up-to-the-second pricing. Our data feeds are fast, reliable, and always accurate so you can make confident decisions.</p>
+    </section>
+  
+    <section>
+      <h2>Customize Your Workspace</h2>
+      <p>Design your trading environment the way you like it — dark mode, multiple layouts, custom alerts, and more. Your workspace, your rules.</p>
+    </section>
+  
+    <section>
+      <h2>Join the Community</h2>
+      <p>Connect with thousands of traders sharing strategies, setups, and ideas. Follow top analysts, publish your charts, and grow together.</p>
+    </section>
+  </main>
+</body>
+</html>
